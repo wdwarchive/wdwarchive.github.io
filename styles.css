@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo|Didact+Gothic');
+
+@font-face {
+    font-family: PrototypeIcons;
+    src: url(prototype-icons.ttf);
+}
+
+@font-face {
+    font-family: Prototype;
+    src: url(prototype.ttf);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #FAFAFA;
+	color: #424242;
+	font-family: Arial, sans-serif;
+	font-size: 24px;
+	line-height: 30px;
+	overflow-y: scroll;
+}
+
+a {
+	color: #4CAF50;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+a:hover {
+	color: #2E7D32;
+	text-decoration: underline;
+}
+
+.epcot {
+	font-family: 'PrototypeIcons';
+	text-transform: initial;
+}
+
+/* Nav bar */
+
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: #FAFAFA;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: 'Prototype', sans-serif;
+	z-index: 10;
+}
+
+nav .nav-container {
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	overflow: hidden
+}
+
+nav .name {
+	float: left;
+}
+
+nav ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	float: right;
+}
+
+nav ul li {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+nav ul li:first-child {
+	margin-left: 0;
+}
+
+nav .active {
+	border-bottom: 5px solid #424242;
+}
+
+nav ul li a, nav .name a {
+	display: inline-block;
+	color: #424242;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+nav ul li a:hover, nav .name a:hover {
+	color: #2E7D32;
+	border-bottom: 5px solid #2E7D32;
+	text-decoration: none;
+}
+
+/* Feedburner styles */
+
+.feedburnerFeedBlock ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.feedburnerFeedBlock ul li {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.feedburnerFeedBlock .headline {
+	font-size: 36px;
+	display: block;
+	margin-bottom: 10px;
+	font-family: 'Prototype', sans-serif;
+}
+
+.feedburnerFeedBlock #creditfooter {
+	display: none;
+}
+
+/* Content */
+
+@keyframes fadein {
+	from {
+		margin-top: 140px;
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.content {
+	max-width: 900px;
+	max-height: 100%;
+	margin-left:auto;
+	margin-right: auto;
+	margin-top: 120px;
+	animation: fadein 0.5s;
+	text-align: justify;
+	z-index: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Prototype', sans-serif;
+}
+
+h1 {
+	font-size: 55px;
+	line-height: 55px;
+}
+
+.titlebox {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+/* Mobile styles */
+
+@media screen and (max-width: 1000px) {
+
+	nav .nav-container {
+		padding-left: 20px;
+		padding-right: 20px;
+		max-width: 900px;
+	}
+
+	.content {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+}
+
+@media screen and (max-width: 750px) {
+
+	@keyframes fadein {
+		from {
+			margin-top: 100px;
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	.content {
+		font-size: 22px;
+	}
+
+	h1 {
+		font-size: 50px;
+		line-height: 50px;
+	}
+
+}
+
+@media screen and (max-width: 450px) {
+	h1 {
+		font-size: 35px;
+		line-height: 35px;
+	}
+}
+
+/* Side navigation */
+
+label[for='nav-checkbox'] { /* Menu button */
+	float: right;
+	line-height: 40px;
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+@keyframes menu-animation { /* Pulse blue on mobile tap */
+	0% {
+		color: #424242;
+	}
+	30% {
+		color: #03A9F4;
+	}
+	70% {
+		color: #03A9F4;
+	}
+	100% {
+		color: #424242;
+	}
+}
+
+label[for='nav-checkbox']:hover, label[for='nav-checkbox']:focus {
+	animation: menu-animation 1s;
+}
+
+#nav-checkbox {
+	display: none;
+}
+
+@media screen and (max-width: 750px) {
+
+	@keyframes nav-in { /* Animation for sliding menu */
+		from {
+			margin-left: 100%;
+		}
+		to {
+			margin-left: 0;
+		}
+	}
+
+	nav ul { /* Menu */
+		display: none;
+		position: fixed;
+		width: 100%;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		left: 0;
+		overflow: auto;
+		background-color: #FAFAFA;
+		margin-top: 80px;
+		z-index: 10;
+	}
+
+	nav ul li { /* Menu items */
+		display: block;
+		text-align: center;
+		margin-left: 0;
+	}
+
+	#nav-checkbox:checked + ul { /* Show menu when checkbox is checked */
+		display: block;
+		animation: nav-in 0.5s;
+	}
+
+}
+
+@media screen and (min-width: 751px) {
+
+	label[for='nav-checkbox'] { /* Hide menu button on large screens */
+		display: none;
+	}
+
+}
